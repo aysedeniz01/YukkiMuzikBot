@@ -15,12 +15,12 @@ from Yukki.Utilities.youtube import get_yt_info_query, get_yt_info_query_slider
 
 loop = asyncio.get_event_loop()
 
-__MODULE__ = "Song"
+__MODULE__ = "bul"
 __HELP__ = """
 
 
-/song [Youtube URL or Search Query] 
-- Download the particular query in audio or video format.
+/bul [Youtube URL'si veya Arama Sorgusu]
+- Belirli bir sorguyu ses veya video formatında indirin.
 
 
 
@@ -28,7 +28,7 @@ __HELP__ = """
 
 
 @app.on_message(
-    filters.command(["song", f"song@{BOT_USERNAME}"])
+    filters.command(["bul", "song", f"bul@{BOT_USERNAME}"])
 )
 @PermissionCheck
 async def play(_, message: Message):
