@@ -32,39 +32,39 @@ from Yukki.Utilities.youtube import get_m3u8, get_yt_info_id
 loop = asyncio.get_event_loop()
 
 
-__MODULE__ = "Voice Chat"
+__MODULE__ = "Komutlar"
 __HELP__ = """
 
 
-/pause
-- Pause the playing music on voice chat.
+/durdur
+- Sesli sohbette çalan müziği duraklatın.
 
-/resume
-- Resume the paused music on voice chat.
+/devam
+- Sesli sohbette duraklatılmış müziği devam ettirin.
 
-/skip
-- Skip the current playing music on voice chat
+/atla
+- Sesli sohbette çalmakta olan müziği atla
 
-/end or /stop
-- Stop the playout.
+/end veya /son
+- Şarkıyı durdurun.
 
 /queue
-- Check queue list.
+- Sıra listesini kontrol edin.
 
 
-**Note:**
-Only for Sudo Users
+**Not:**
+Yalnızca Sudo Kullanıcıları için
 
 /activevc
-- Check active voice chats on bot.
+- Botta aktif sesli sohbetleri kontrol edin.
 
 /activevideo
-- Check active video calls on bot.
+- Botta aktif görüntülü aramaları kontrol edin.
 """
 
 
 @app.on_message(
-    filters.command(["pause", "skip", "resume", "stop", "end"])
+    filters.command(["durdur", "atla", "devam", "son", "end"])
     & filters.group
 )
 @AdminRightsCheck
@@ -76,7 +76,7 @@ async def admins(_, message: Message):
     if not await is_active_chat(message.chat.id):
         return await message.reply_text("Nothing is playing on voice chat.")
     chat_id = message.chat.id
-    if message.command[0][1] == "a":
+    if message.command[0][1] == "u":
         if not await is_music_playing(message.chat.id):
             return await message.reply_text("Music is already Paused.")
         await music_off(chat_id)
@@ -92,7 +92,7 @@ async def admins(_, message: Message):
         await message.reply_text(
             f"🎧 Voicechat Resumed by {message.from_user.mention}!"
         )
-    if message.command[0][1] == "t" or message.command[0][1] == "n":
+    if message.command[0][1] == "o" or message.command[0][1] == "n":
         if message.chat.id not in db_mem:
             db_mem[message.chat.id] = {}
         wtfbro = db_mem[message.chat.id]
@@ -107,7 +107,7 @@ async def admins(_, message: Message):
         await message.reply_text(
             f"🎧 Voicechat End/Stopped by {message.from_user.mention}!"
         )
-    if message.command[0][1] == "k":
+    if message.command[0][1] == "t":
         if message.chat.id not in db_mem:
             db_mem[message.chat.id] = {}
         wtfbro = db_mem[message.chat.id]
