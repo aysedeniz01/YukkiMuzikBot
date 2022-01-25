@@ -71,7 +71,7 @@ __HELP__ = """
 async def admins(_, message: Message):
     global get_queue
     if not len(message.command) == 1:
-        return await message.reply_text("𝖧𝖺𝗍𝖺! 𝖪𝗈𝗆𝗎𝗍𝗎𝗇 𝗒𝖺𝗇𝗅𝗂𝗌 𝗄𝗎𝗅𝗅𝖺𝗇𝗂𝗆𝗂...)
+        return await message.reply_text("𝖧𝖺𝗍𝖺! 𝖪𝗈𝗆𝗎𝗍𝗎𝗇 𝗒𝖺𝗇𝗅𝗂𝗌 𝗄𝗎𝗅𝗅𝖺𝗇𝗂𝗆𝗂...")
     if not await is_active_chat(message.chat.id):
         return await message.reply_text("𝖲𝖾𝗌𝗅𝗂 𝗌𝗈𝗁𝖻𝖾𝗍𝗍𝖾 𝗁𝗂𝖼𝖻𝗂𝗋𝗌𝖾𝗒 𝖼𝖺𝗅𝗆𝗂𝗒𝗈𝗋...")
     chat_id = message.chat.id
