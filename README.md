@@ -1,3 +1,4 @@
+https://heroku.com/deploy?template=https://github.com/intikatimi/YukkiMuzikBot
 <p align="center"><img src="https://github.com/notreallyshikhar/YukkiMusicBot/blob/master/Utils/icon.gif" alt="ICON" width="250" height="250"/></p>
 
 <h4 align="center">
